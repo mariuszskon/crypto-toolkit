@@ -1,0 +1,1 @@
+body,ul{margin:0}body{font-family:sans-serif}ul{padding:0;list-style:none}nav{background-color:#ff8520;height:2em}nav ul li{float:left;line-height:2em}nav ul li:first-child a{padding:0 1em 0 0}nav ul li a{padding:0 1em;display:block}a{text-decoration:none;color:#00f}nav ul li ul{display:none}#main,nav ul{margin:0 auto;width:95%}
