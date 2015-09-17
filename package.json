@@ -1,0 +1,18 @@
+{
+  "name": "crypto-toolkit",
+  "version": "0.0.0",
+  "description": "A cryptography toolkit written in JavaScript",
+  "main": "dist/node/crypto-toolkit.js",
+  "scripts": {
+    "test": "node dist/node/test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mariuszskon/crypto-toolkit.git"
+  },
+  "author": "Mariusz Skoneczko",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mariuszskon/crypto-toolkit/issues"
+  }
+}
