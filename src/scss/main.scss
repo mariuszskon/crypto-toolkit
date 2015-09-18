@@ -6,28 +6,39 @@ body {
 }
 
 nav {
-    background-color: $navbar-color;
     height: $navbar-height;
     
-    ul {
-        @extend #main; // use the same container styles
-        
-        li {
-            float: left;
-            line-height: $navbar-height;
-            
-            &:first-child a {
-                padding: 0 1em 0 0;
-            }
-            
-            a {
-                padding: 0 1em;
-                display: block;
-            }
-            
+    li {
+        line-height: $navbar-height;
+        display: inline;
+
+        &:first-child a {
+            padding: 0 1em 0 0;
         }
-        
+
     }
+    
+    #sub-ul ul:not(#home-menu) {
+        display: none;
+    }
+    
+    > ul {
+        @extend #main; // use the same container styles
+    }
+    
+    a {
+        padding: 0 1em;
+        display: inline-block;
+        color: white;
+    }
+}
+
+#main-nav {
+    background-color: $main-navbar-color;
+}
+
+#sub-nav {
+    background-color: $sub-navbar-color;
 }
 
 a {
@@ -35,11 +46,11 @@ a {
     color: blue;
 }
 
-nav ul li ul {
-    display: none;
-}
-
 #main {
     margin: 0 auto;
     width: 95%;
+}
+
+#main > div:not(#home-welcome) {
+    display: none;
 }

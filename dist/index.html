@@ -7,42 +7,49 @@
         <link rel="stylesheet" href="css/main.css">
     </head>
     <body>
-        <nav>
-            <ul id="outer">
+        <nav id="main-nav">
+            <ul id="main-ul">
                 <li><a href="#">Home</a></li>
-                <li><a href="#">Simple Ciphers</a>
-                    <ul id="ciphers">
-                        <li><a href="#">Caesar</a></li>
-                        <li><a href="#">Vigenere</a></li>
-                    </ul>
-                </li>
-                <li><a href="#">Modern crypto</a>
-                    <ul id="modern">
-                        <li><a href="#">RSA</a></li>
-                        <li><a href="#">Diffie-Hellman</a></li>
-                    </ul>
-                </li>
-                <li><a href="#">Crackers</a>
-                    <ul id="crackers">
-                        <li><a href="#">Caesar cracker</a></li>
-                    </ul>
-                </li>
+                <li><a href="#">Simple Ciphers</a></li>
+                <li><a href="#">Modern crypto</a></li>
+                <li><a href="#">Crackers</a></li>
+            </ul>
+
+        </nav>
+        
+        <nav id="sub-nav">
+            <ul id="sub-ul">
+                <ul id="home-menu">
+                    <li><a href="#">Welcome</a></li>
+                    <li><a href="#">License</a></li>
+                </ul>
+                <ul id="ciphers-menu">
+                    <li><a href="#">Caesar</a></li>
+                    <li><a href="#">Vigenere</a></li>
+                </ul>
+                <ul id="modern-menu">
+                    <li><a href="#">RSA</a></li>
+                    <li><a href="#">Diffie-Hellman</a></li>
+                </ul>
+                <ul id="crackers-menu">
+                    <li><a href="#">Caesar cracker</a></li>
+                </ul>
             </ul>
         </nav>
         
         <div id="main">
             
-            <div id="index">
+            <div id="home-welcome">
                 <h1>Welcome</h1>
                 <p>Welcome to crypto-toolkit!</p>
             </div>
             
-            <div id="caesar">
-                
+            <div id="cipher-caesar">
+                <h1>Caesar cipher</h1>
             </div>
             
-            <div id="vigenere">
-                
+            <div id="cipher-vigenere">
+                <h1>Vigenere cipher</h1>
             </div>
             
         </div>
