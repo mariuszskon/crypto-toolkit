@@ -3,6 +3,11 @@ var sass = require('gulp-sass');
 var minifycss = require('gulp-minify-css');
 var autoprefixer = require('gulp-autoprefixer');
 var rename = require('gulp-rename');
+var concat = require('gulp-concat');
+var uglify = require('gulp-uglify');
+
+var javascriptsAll = ['header.js'];
+var javascriptsBrowser = ['ui/toolbar.js', 'ui/pages.js'];
 
 gulp.task('html', function() {
     gulp.src('src/index.html')
@@ -21,7 +26,24 @@ gulp.task('scss', function() {
         .pipe(gulp.dest('dist/css/'));
 });
 
-gulp.task('browser', ['html', 'scss'], function() {
+gulp.task('js-browser', function() {
+    var finalJs = [];
+    function getListOfBrowserJs() {
+        var concatList = javascriptsAll.concat(javascriptsBrowser);
+        concatList.forEach(function(content) {
+            finalJs.push('src/js/' + content); // prefix every path with src/js
+        });
+    }
+    getListOfBrowserJs();
+    
+    gulp.src(finalJs)
+        .pipe(concat('crypto-toolkit.js'))
+        .pipe(gulp.dest('other/js/'))
+        .pipe(uglify())
+        .pipe(gulp.dest('dist/js'));
+});
+
+gulp.task('browser', ['html', 'scss', 'js-browser'], function() {
 });
 
 gulp.task('watch-browser', function() {
@@ -32,6 +54,11 @@ gulp.task('watch-browser', function() {
     
     var scsswatcher = gulp.watch('src/scss/main.scss', ['scss']);
     scsswatcher.on('change', function(event) {
+        console.log('File ' + event.path + ' was ' + event.type + ', running tasks...');
+    });
+    
+    var jswatcher = gulp.watch('src/js/**/*.js', ['js-browser']);
+    jswatcher.on('change', function(event) {
         console.log('File ' + event.path + ' was ' + event.type + ', running tasks...');
     });
 });
