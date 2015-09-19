@@ -2,6 +2,7 @@ var gulp = require('gulp');
 var sass = require('gulp-sass');
 var minifycss = require('gulp-minify-css');
 var autoprefixer = require('gulp-autoprefixer');
+var rename = require('gulp-rename');
 
 gulp.task('html', function() {
     gulp.src('src/index.html')
@@ -10,9 +11,13 @@ gulp.task('html', function() {
 
 gulp.task('scss', function() {
     gulp.src('src/scss/main.scss')
-        .pipe(sass({outputStyle: "extended"}))
+        .pipe(sass({outputStyle: "expanded"}))
+        .pipe(gulp.dest('other/css'))
         .pipe(autoprefixer({browsers: ['last 2 version']}))
+        .pipe(rename('main-prefixed.css'))
+        .pipe(gulp.dest('other/css'))
         .pipe(minifycss())
+        .pipe(rename('main.min.css'))
         .pipe(gulp.dest('dist/css/'));
 });
 

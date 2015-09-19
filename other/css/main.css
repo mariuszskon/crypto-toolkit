@@ -1,0 +1,58 @@
+body {
+  margin: 0;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+body {
+  font-family: sans-serif;
+}
+
+nav {
+  height: 3em;
+}
+
+nav li {
+  line-height: 3em;
+  display: inline;
+}
+
+nav li:first-child a {
+  padding: 0 1em 0 0;
+}
+
+nav #sub-ul ul:not(#home-menu) {
+  display: none;
+}
+
+nav a {
+  padding: 0 1em;
+  display: inline-block;
+  color: white;
+}
+
+#main-nav {
+  background-color: #FF6600;
+}
+
+#sub-nav {
+  background-color: #FF9900;
+}
+
+a {
+  text-decoration: none;
+  color: blue;
+}
+
+#main, nav > ul {
+  margin: 0 auto;
+  width: 95%;
+}
+
+#main > div:not(#home-welcome), nav > ul > div:not(#home-welcome) {
+  display: none;
+}
