@@ -13,6 +13,10 @@ nav {
         display: inline-block;
     }
     
+    #home-button {
+        background-color: $sub-navbar-color;
+    }
+    
     #sub-ul ul:not(#home-menu) {
         display: none;
     }

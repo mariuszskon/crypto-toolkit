@@ -21,6 +21,10 @@ nav li {
   display: inline-block;
 }
 
+nav #home-button {
+  background-color: #FF9900;
+}
+
 nav #sub-ul ul:not(#home-menu) {
   display: none;
 }
