@@ -10,12 +10,7 @@ nav {
     
     li {
         line-height: $navbar-height;
-        display: inline;
-
-        &:first-child a {
-            padding: 0 1em 0 0;
-        }
-
+        display: inline-block;
     }
     
     #sub-ul ul:not(#home-menu) {

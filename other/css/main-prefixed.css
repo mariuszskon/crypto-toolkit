@@ -18,11 +18,7 @@ nav {
 
 nav li {
   line-height: 3em;
-  display: inline;
-}
-
-nav li:first-child a {
-  padding: 0 1em 0 0;
+  display: inline-block;
 }
 
 nav #sub-ul ul:not(#home-menu) {
