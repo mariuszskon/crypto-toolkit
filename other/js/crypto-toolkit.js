@@ -29,6 +29,12 @@
  * 
  */
 
+// define objects for storing things
+var data = {}; // applicable to many things (i.e. alphabet)
+var cipher = {};
+var modern = {};
+var cracker = {};
+
 // toolbar.js
 
 var mainToolbarButtons = document.getElementById("main-ul").getElementsByTagName("a");

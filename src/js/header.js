@@ -28,3 +28,9 @@
  * Disclaimer: I am not a professional cryptographer. Do not use this software for serious applications as it is not thoroughly tested.
  * 
  */
+
+// define objects for storing things
+var data = {}; // applicable to many things (i.e. alphabet)
+var cipher = {};
+var modern = {};
+var cracker = {};
