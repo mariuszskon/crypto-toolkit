@@ -35,6 +35,52 @@ var cipher = {};
 var modern = {};
 var cracker = {};
 
+// alphabet.js
+
+data.alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+data.upperbet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+data.lowandup = data.alphabet.concat(data.upperbet);
+data.alphanumeric = data.lowandup.concat(["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]);
+
+// caesar.js
+
+cipher.caesar = function(mode, input, key) {
+    
+    var outputtext = "";
+    
+    if (key < 1 || key > (data.alphabet.length - 1)) {
+        return null; // end the function
+    }
+    
+    for (var i = 0; i < input.length; i++) { // loop through all of the inputtext
+        
+        var position = data.alphabet.indexOf(input.charAt(i));
+        var l;
+        
+        if (mode === true) { // encryption mode
+            l = position + key;
+            
+            l = l % data.alphabet.length;
+        }
+        
+        if (mode === false) { // decryption mode
+            l = position - key;
+            
+            if (l < 0) {
+                
+                l = l + data.alphabet.length;
+                
+            }
+        }
+        
+        outputtext += data.alphabet[l]; // put the outputtext letter in the ciphertext
+        
+    }
+    
+    return outputtext;
+    
+};
+
 // toolbar.js
 
 var mainToolbarButtons = document.getElementById("main-ul").getElementsByTagName("a");

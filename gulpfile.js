@@ -6,7 +6,7 @@ var rename = require('gulp-rename');
 var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
 
-var javascriptsAll = ['header.js'];
+var javascriptsAll = ['header.js', 'data/alphabet.js', 'ciphers/caesar.js'];
 var javascriptsBrowser = ['ui/toolbar.js', 'ui/pages.js'];
 
 gulp.task('html', function() {
