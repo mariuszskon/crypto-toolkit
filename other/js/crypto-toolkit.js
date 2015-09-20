@@ -144,16 +144,18 @@ function highlightChosen(el) {
     el.style.backgroundColor = "#FF9900"; // make the clicked element's color the same as the sub navbar color
 }
 
+function manageToolbarButtons(e) {
+    highlightChosen(e.target);
+    
+    for (var j = 0; j < subMenus.length; j++) {
+        subMenus[j].style.display = "none";
+    }
+    
+    document.getElementById(e.target.id.replace(/button/, "menu")).style.display = "block"; // the names of the buttons correspond to the menu names
+}
+
 for (var i = 0; i < mainToolbarButtons.length; i++) {
-    mainToolbarButtons[i].addEventListener("click", function(e) {
-        highlightChosen(e.target);
-        
-        for (var j = 0; j < subMenus.length; j++) {
-            subMenus[j].style.display = "none";
-        }
-        
-        document.getElementById(e.target.id.replace(/button/, "menu")).style.display = "block"; // the names of the buttons correspond to the menu names
-    });
+    mainToolbarButtons[i].addEventListener("click", manageToolbarButtons);
 }
 
 // pages.js
@@ -178,9 +180,11 @@ openPage(); // initial run in case the user bookmarked the page or was linked
 
 var subLinks = document.getElementById("sub-ul").getElementsByTagName("a");
 
+function manageSubLinks(e) {
+    window.location = e.target.href; // make sure the hash is in the location before we try to use it (e is passed from addEventListener, and target is the actual element that is clicked on)
+    openPage();
+}
+
 for (var i = 0; i < subLinks.length; i++) {
-    subLinks[i].addEventListener("click", function() {
-        window.location = this.href; // make sure the hash is in the location before we try to use it
-        openPage();
-    });
+    subLinks[i].addEventListener("click", manageSubLinks);
 }
