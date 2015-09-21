@@ -25,10 +25,6 @@ nav #home-button {
   background-color: #FF9900;
 }
 
-nav #sub-ul ul:not(#home-menu) {
-  display: none;
-}
-
 nav a {
   padding: 0 1em;
   display: inline-block;
@@ -41,6 +37,10 @@ nav a {
 
 #sub-nav {
   background-color: #FF9900;
+}
+
+#sub-nav ul:not(#home-menu) {
+  display: none;
 }
 
 a {

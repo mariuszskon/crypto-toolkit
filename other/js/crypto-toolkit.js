@@ -145,7 +145,7 @@ function gid(id) {
 // toolbar.js
 
 var mainToolbarButtons = gid("main-ul").getElementsByTagName("a");
-var subMenus = gid("sub-ul").getElementsByTagName("ul");
+var subMenus = gid("sub-nav").getElementsByTagName("ul");
 
 function highlightChosen(el) {
     for (var i = 0; i < mainToolbarButtons.length; i++) {
@@ -189,7 +189,7 @@ function openPage() {
 
 openPage(); // initial run in case the user bookmarked the page or was linked
 
-var subLinks = gid("sub-ul").getElementsByTagName("a");
+var subLinks = gid("sub-nav").getElementsByTagName("a");
 
 function manageSubLinks(e) {
     window.location = e.target.href; // make sure the hash is in the location before we try to use it (e is passed from addEventListener, and target is the actual element that is clicked on)

@@ -17,10 +17,6 @@ nav {
         background-color: $sub-navbar-color;
     }
     
-    #sub-ul ul:not(#home-menu) {
-        display: none;
-    }
-    
     > ul {
         @extend #main; // use the same container styles
     }
@@ -38,6 +34,10 @@ nav {
 
 #sub-nav {
     background-color: $sub-navbar-color;
+    
+    ul:not(#home-menu) {
+        display: none;
+    }
 }
 
 a {

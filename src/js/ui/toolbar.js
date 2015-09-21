@@ -1,7 +1,7 @@
 // toolbar.js
 
 var mainToolbarButtons = gid("main-ul").getElementsByTagName("a");
-var subMenus = gid("sub-ul").getElementsByTagName("ul");
+var subMenus = gid("sub-nav").getElementsByTagName("ul");
 
 function highlightChosen(el) {
     for (var i = 0; i < mainToolbarButtons.length; i++) {
