@@ -1,7 +1,7 @@
 // toolbar.js
 
-var mainToolbarButtons = document.getElementById("main-ul").getElementsByTagName("a");
-var subMenus = document.getElementById("sub-ul").getElementsByTagName("ul");
+var mainToolbarButtons = gid("main-ul").getElementsByTagName("a");
+var subMenus = gid("sub-ul").getElementsByTagName("ul");
 
 function highlightChosen(el) {
     for (var i = 0; i < mainToolbarButtons.length; i++) {
@@ -18,7 +18,7 @@ function manageToolbarButtons(e) {
         subMenus[j].style.display = "none";
     }
     
-    document.getElementById(e.target.id.replace(/button/, "menu")).style.display = "block"; // the names of the buttons correspond to the menu names
+    gid(e.target.id.replace(/button/, "menu")).style.display = "block"; // the names of the buttons correspond to the menu names
 }
 
 for (var i = 0; i < mainToolbarButtons.length; i++) {

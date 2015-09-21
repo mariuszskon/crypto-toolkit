@@ -131,10 +131,17 @@ cipher.vigenere = function(mode, input, key) {
 };
 
 
+// browser.js
+// global definitions for use in the browser
+
+function gid(id) {
+    return document.getElementById(id);
+}
+
 // toolbar.js
 
-var mainToolbarButtons = document.getElementById("main-ul").getElementsByTagName("a");
-var subMenus = document.getElementById("sub-ul").getElementsByTagName("ul");
+var mainToolbarButtons = gid("main-ul").getElementsByTagName("a");
+var subMenus = gid("sub-ul").getElementsByTagName("ul");
 
 function highlightChosen(el) {
     for (var i = 0; i < mainToolbarButtons.length; i++) {
@@ -151,7 +158,7 @@ function manageToolbarButtons(e) {
         subMenus[j].style.display = "none";
     }
     
-    document.getElementById(e.target.id.replace(/button/, "menu")).style.display = "block"; // the names of the buttons correspond to the menu names
+    gid(e.target.id.replace(/button/, "menu")).style.display = "block"; // the names of the buttons correspond to the menu names
 }
 
 for (var i = 0; i < mainToolbarButtons.length; i++) {
@@ -163,9 +170,9 @@ for (var i = 0; i < mainToolbarButtons.length; i++) {
 function openPage() {
     var pageHash = window.location.hash.slice(1);
     if (pageHash !== "") {
-        var chosenPageHash = document.getElementById(window.location.hash.slice(1));
+        var chosenPageHash = gid(window.location.hash.slice(1));
         if (chosenPageHash !== null) { // if the page hash is valid
-            var allPages = document.getElementById("main").getElementsByTagName("div");
+            var allPages = gid("main").getElementsByTagName("div");
             
             for (var i = 0; i < allPages.length; i++) {
                 allPages[i].style.display = "none";
@@ -178,7 +185,7 @@ function openPage() {
 
 openPage(); // initial run in case the user bookmarked the page or was linked
 
-var subLinks = document.getElementById("sub-ul").getElementsByTagName("a");
+var subLinks = gid("sub-ul").getElementsByTagName("a");
 
 function manageSubLinks(e) {
     window.location = e.target.href; // make sure the hash is in the location before we try to use it (e is passed from addEventListener, and target is the actual element that is clicked on)
