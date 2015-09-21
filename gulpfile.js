@@ -14,7 +14,8 @@ var javascriptsAll = ['header.js',
 var javascriptsBrowser = ['browser.js',
                           'ui/toolbar.js',
                           'ui/pages.js',
-                          'ui/caesar-dom.js'];
+                          'ui/caesar-dom.js',
+                          'ui/vigenere-dom.js'];
 
 gulp.task('html', function() {
     gulp.src('src/index.html')
