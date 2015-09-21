@@ -6,8 +6,14 @@ var rename = require('gulp-rename');
 var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
 
-var javascriptsAll = ['header.js', 'data/alphabet.js', 'ciphers/caesar.js', 'ciphers/vigenere.js'];
-var javascriptsBrowser = ['browser.js', 'ui/toolbar.js', 'ui/pages.js'];
+var javascriptsAll = ['header.js',
+                      'data/alphabet.js',
+                      'ciphers/caesar.js',
+                      'ciphers/vigenere.js'];
+
+var javascriptsBrowser = ['browser.js',
+                          'ui/toolbar.js',
+                          'ui/pages.js'];
 
 gulp.task('html', function() {
     gulp.src('src/index.html')
