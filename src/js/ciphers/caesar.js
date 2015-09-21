@@ -4,13 +4,15 @@ cipher.caesar = function(mode, input, key) {
     
     var outputtext = "";
     
+    var cinput = input.replace(/\s/g, ""); // strip out all spaces
+    
     if (key < 1 || key > (data.alphabet.length - 1)) {
         return null; // end the function
     }
     
-    for (var i = 0; i < input.length; i++) { // loop through all of the inputtext
+    for (var i = 0; i < cinput.length; i++) { // loop through all of the input text
         
-        var position = data.alphabet.indexOf(input.charAt(i));
+        var position = data.alphabet.indexOf(cinput.charAt(i));
         var l;
         
         if (mode === true) { // encryption mode

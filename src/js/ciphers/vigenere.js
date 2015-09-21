@@ -11,15 +11,17 @@ cipher.vigenereGetKeyLetterAlphabetPosition = function(number, key) { // take nu
 cipher.vigenere = function(mode, input, key) {
     var finaloutput = "";
     
-    for (var i = 0; i < input.length; i++) {
+    var cinput = input.replace(/\s/g, "");
+    
+    for (var i = 0; i < cinput.length; i++) {
         
-        if (input.charAt(i) == "\n") {
+        if (cinput.charAt(i) == "\n") {
             
             continue; // it's a newline: we don't need to keep going - go straight to the next letter
             
         }
         
-        var inputLetterPosition = data.alphabet.indexOf(input.charAt(i));
+        var inputLetterPosition = data.alphabet.indexOf(cinput.charAt(i));
         
         var finalLetterPosition = "";
         
