@@ -211,7 +211,11 @@ function caesarGetDOMValues() {
 
 function caesarDOMmanage(mode) {
     var values = caesarGetDOMValues();
-    gid("caesar-output").innerHTML = cipher.caesar(mode, values.input, values.key);
+    var converted = cipher.caesar(mode, values.input, values.key);
+    if (converted === null) {
+        converted = "Key is invalid (must be between 1 and " + (data.alphabet.length - 1) + ")";
+    }
+    gid("caesar-output").innerHTML = converted;
 }
 
 gid("caesar-en").addEventListener("click", function() {
