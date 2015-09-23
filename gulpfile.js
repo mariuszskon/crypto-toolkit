@@ -17,6 +17,8 @@ var javascriptsBrowser = ['browser.js',
                           'ui/caesar-dom.js',
                           'ui/vigenere-dom.js'];
 
+var javascriptsNode = ['module.js'];
+
 gulp.task('html', function() {
     gulp.src('src/index.html')
         .pipe(gulp.dest('dist/'));
@@ -49,6 +51,22 @@ gulp.task('js-browser', function() {
         .pipe(gulp.dest('other/js/'))
         .pipe(uglify())
         .pipe(gulp.dest('dist/js'));
+});
+
+gulp.task('js-node', function() {
+    var finalJs = [];
+    function getListOfNodeJs() {
+        var concatList = javascriptsAll.concat(javascriptsNode);
+        concatList.forEach(function(content) {
+            finalJs.push('src/js/' + content); // prefix every path with src/js
+        });
+    }
+    getListOfNodeJs();
+    
+    gulp.src(finalJs)
+        .pipe(concat('crypto-toolkit.js'))
+        .pipe(gulp.dest('other/node/'))
+        .pipe(gulp.dest('dist/node/'));
 });
 
 gulp.task('browser', ['html', 'scss', 'js-browser'], function() {
