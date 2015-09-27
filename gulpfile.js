@@ -9,7 +9,8 @@ var uglify = require('gulp-uglify');
 var javascriptsAll = ['header.js',
                       'data/alphabet.js',
                       'ciphers/caesar.js',
-                      'ciphers/vigenere.js'];
+                      'ciphers/vigenere.js',
+                      'bigint/BigInteger.min.js'];
 
 var javascriptsBrowser = ['browser.js',
                           'ui/toolbar.js',
