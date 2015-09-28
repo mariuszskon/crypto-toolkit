@@ -26,7 +26,7 @@
                 <li><a href="#cipher-vigenere">Vigenere</a></li>
             </ul>
             <ul id="modern-menu">
-                <li><a href="#">RSA</a></li>
+                <li><a href="#modern-rsa">RSA</a></li>
                 <li><a href="#">Diffie-Hellman</a></li>
             </ul>
             <ul id="crackers-menu">
@@ -90,6 +90,37 @@
                 <p>Output: </p><pre id="vigenere-output">Output</pre>
                 <button id="vigenere-en" type="button">Encrypt</button>
                 <button id="vigenere-de" type="button">Decrypt</button>
+            </div>
+            
+            <div id="modern-rsa">
+                <h1>RSA</h1>
+                <p>RSA was invented by Ron Rivest, Adi Shamir and Leonard Adleman. It is the most commonly used public-key cryptosystem as of this writing.</p>
+                <h3><a id="rsa-key-gen-button" href="#modern-rsa">Key generation (import/export)</a></h3>
+                <div id="rsa-key-gen">
+                    <p>Starting at <input id="rsa-initbase" type="number" value="2"> to the power of <input id="rsa-initpow" type="number" value="512"> get the next prime. Based off that, get another prime starting at the product of the prime and <input id="rsa-seconddiff" type="number" value="1234"></p>
+                    <button id="rsa-gen-keypair" type="button">Generate keys!</button>
+                    <p>Public key (share!): <br><code id="rsa-key-gen-pub"></code></p>
+                    <p>Private key (keep secret!)<br>
+                        <code id="rsa-key-gen-priv"></code>
+                    </p>
+                </div>
+                
+                <h3><a id="rsa-crypt-button" href="#modern-rsa">Encryption/Decryption</a></h3>
+                <div id="rsa-crypt">
+                    <p>Message (number for now): <br>
+                        <textarea id="rsa-crypt-message"></textarea>
+                    </p>
+                    <hr>
+                    <p>Public key: <input id="rsa-crypt-pub" type="text"></p>
+                    <button id="rsa-encrypt" type="button">Encrypt</button>
+                    <hr>
+                    <p>Private key: <input id="rsa-crypt-priv" type="text"></p>
+                    <button id="rsa-decrypt" type="button">Decrypt</button>
+                    <hr>
+                    <p>Result</p>
+                    <pre id="rsa-crypt-result"></pre>
+                </div>
+                
             </div>
             
         </div>
