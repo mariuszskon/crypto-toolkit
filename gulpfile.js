@@ -10,7 +10,8 @@ var javascriptsAll = ['header.js',
                       'data/alphabet.js',
                       'ciphers/caesar.js',
                       'ciphers/vigenere.js',
-                      'bigint/BigInteger.min.js'];
+                      'bigint/BigInteger.min.js',
+                      'modern/rsa.js'];
 
 var javascriptsBrowser = ['browser.js',
                           'ui/toolbar.js',

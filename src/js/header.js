@@ -32,6 +32,7 @@
 
 // define objects for storing things
 var data = {}; // applicable to many things (i.e. alphabet)
+var internal = {}; // internal functions, but may be useful for other things
 var cipher = {};
 var modern = {};
 var cracker = {};
