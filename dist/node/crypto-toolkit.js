@@ -171,6 +171,35 @@ internal.mminverse = function(a, n) {
     return t;
 };
 
+internal.text2num = function(text) {
+    var output = "";
+    
+    for (var i = 0; i < text.length; i++) {
+        var value = text.charCodeAt(i).toString();
+        while (value.length < 3) {
+            value = "0" + value;
+        }
+        output += value;
+    }
+    
+    return output;
+};
+
+internal.num2text = function(numstring) {
+    var output = "";
+    var inputstring = numstring;
+    
+    while (inputstring.length % 3 !== 0) {
+        inputstring = "0" + inputstring;
+    }
+    
+    for (var i = 0; i < inputstring.length - 2; i += 3) {
+        output += String.fromCharCode(inputstring.slice(i, i + 3));
+    }
+    
+    return output;
+};
+
 modern.rsaGenKeyPair = function(initnum, initpow, seconddiff) {
 
     var p = internal.nextPrime(bigInt(initnum).pow(initpow));
@@ -199,8 +228,20 @@ modern.rsaGenKeyPair = function(initnum, initpow, seconddiff) {
     };
 };
 
-modern.rsaCrypt = function(input, exp, n) {
-    return bigInt(input).modPow(exp, n);
+modern.rsaCrypt = function(input, exp, n, textConvertMode) {
+    var finalinput = input;
+    
+    if (textConvertMode === false) {
+        finalinput = internal.text2num(input);
+    }
+    
+    var output = bigInt(finalinput).modPow(exp, n);
+    
+    if (textConvertMode === true) {
+        output = internal.num2text(output.toString());
+    }
+    
+    return output;
 };
 
 // module.js
