@@ -40,13 +40,11 @@ function rsadomcrypt(e) {
     var m = gid("rsa-crypt-message").value;
     
     if (e.target.id === "rsa-encrypt") {
-        console.log(e.target.id);
         var pubk = JSON.parse(gid("rsa-crypt-pub").value);
         gid("rsa-crypt-result").innerHTML = modern.rsaCrypt(m, pubk.e, pubk.n);
     }
     
     if (e.target.id === "rsa-decrypt") {
-        console.log(e.target.id);
         var privk = JSON.parse(gid("rsa-crypt-priv").value);
         gid("rsa-crypt-result").innerHTML = modern.rsaCrypt(m, privk.d, privk.n);
     }
