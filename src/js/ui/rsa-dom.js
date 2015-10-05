@@ -38,16 +38,31 @@ gid("rsa-gen-keypair").addEventListener("click", function() {
 
 function rsadomcrypt(e) {
     var m = gid("rsa-crypt-message").value;
+    var exp;
+    var n;
+    var convertTextMode;
+    var convertText = [null, null];
+    
+    if (!gid("rsa-msg-num").checked) {
+        convertText = [false, true];
+    }
     
     if (e.target.id === "rsa-encrypt") {
         var pubk = JSON.parse(gid("rsa-crypt-pub").value);
-        gid("rsa-crypt-result").innerHTML = modern.rsaCrypt(m, pubk.e, pubk.n, false);
+        exp = pubk.e;
+        n = pubk.n;
+        convertTextMode = convertText[0];
     }
     
     if (e.target.id === "rsa-decrypt") {
         var privk = JSON.parse(gid("rsa-crypt-priv").value);
-        gid("rsa-crypt-result").innerHTML = modern.rsaCrypt(m, privk.d, privk.n, true);
+        exp = privk.d;
+        n = privk.n;
+        convertTextMode = convertText[1];
     }
+    
+    gid("rsa-crypt-result").innerHTML = modern.rsaCrypt(m, exp, n, convertTextMode);
+    
 }
 
 gid("rsa-encrypt").addEventListener("click", rsadomcrypt);
