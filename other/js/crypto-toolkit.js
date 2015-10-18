@@ -341,6 +341,16 @@ for (var i = 0; i < subLinks.length; i++) {
     subLinks[i].addEventListener("click", manageSubLinks);
 }
 
+// use addEventListener to attach togglemenu as a function to be run after an event is fired
+function togglemenu(e) {
+    var section = gid(e.target.id.replace(/-button/, ""));
+    if (section.style.display === "block") {
+        section.style.display = "none";
+    } else {
+        section.style.display = "block";
+    }
+}
+
 // caesar-dom.js
 
 function caesarGetDOMValues() {
@@ -390,17 +400,9 @@ gid("vigenere-de").addEventListener("click", function() {
 });
 
 // rsa-dom.js
-function rsatogglemenu(e) {
-    var section = gid(e.target.id.replace(/-button/, ""));
-    if (section.style.display === "block") {
-        section.style.display = "none";
-    } else {
-        section.style.display = "block";
-    }
-}
 
-gid("rsa-key-gen-button").addEventListener("click", rsatogglemenu);
-gid("rsa-crypt-button").addEventListener("click", rsatogglemenu);
+gid("rsa-key-gen-button").addEventListener("click", togglemenu);
+gid("rsa-crypt-button").addEventListener("click", togglemenu);
 
 gid("rsa-gen-keypair").addEventListener("click", function() {
     // Thanks to BigInteger.js we can pass the numbers as strings

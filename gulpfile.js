@@ -17,6 +17,7 @@ var javascriptsAll = ['header.js',
 var javascriptsBrowser = ['browser.js',
                           'ui/toolbar.js',
                           'ui/pages.js',
+                          'ui/togglemenu.js',
                           'ui/caesar-dom.js',
                           'ui/vigenere-dom.js',
                           'ui/rsa-dom.js'];
