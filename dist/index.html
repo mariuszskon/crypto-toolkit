@@ -27,7 +27,7 @@
             </ul>
             <ul id="modern-menu">
                 <li><a href="#modern-rsa">RSA</a></li>
-                <li><a href="#">Diffie-Hellman</a></li>
+                <li><a href="#modern-dh">Diffie-Hellman</a></li>
             </ul>
             <ul id="crackers-menu">
                 <li><a href="#">Caesar cracker</a></li>
@@ -122,6 +122,37 @@
                     <p>Result</p>
                     <pre id="rsa-crypt-result"></pre>
                 </div>
+                
+            </div>
+            
+            <div id="modern-dh">
+                <h1>Diffie-Hellman key exchange</h1>
+                <p>The Diffie-Hellman was one of the first solutions to the problem of key exchange. It allows two parties to agree on a key over an insecure channel.</p>
+                
+                <h3>Public prime and base</h3>
+                <p>Use RFC3526 standard:</p>
+                <form id="dh-public-size">
+                    <label><input type="radio" name="dh-size" value="2048" checked>2048 bit</label>
+                    <label><input type="radio" name="dh-size" value="3072">3072 bit</label>
+                    <label><input type="radio" name="dh-size" value="4096">4096 bit</label>
+                </form>
+                
+                <h3>Private key</h3>
+                <p>Your private key must be a number between 1 and 2<sup>(bits - 1)</sup></p>
+                <input id="dh-priv" type="text">
+                
+                <h3>Generate public key</h3>
+                <p>Make sure that the steps above are complete, and then press the button below.</p>
+                <button id="dh-gen-pub" type="button">Generate public key</button>
+                <pre id="dh-pub-key"></pre>
+                
+                <h3>Agree on final key</h3>
+                <p>Send the public key to the other person. Get them to give you their public key.</p>
+                <input id="dh-their-pub" type="text" placeholder="Their public key">
+                <p>Now you can arrive at the same key!</p>
+                <button id="dh-final" type="button">Compute final shared key</button>
+                <pre id="dh-final-key"></pre>
+                <p>This key can now be used for symmetric key algorithms.</p>
                 
             </div>
             
