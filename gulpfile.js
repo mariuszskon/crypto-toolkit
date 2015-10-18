@@ -20,7 +20,8 @@ var javascriptsBrowser = ['browser.js',
                           'ui/togglemenu.js',
                           'ui/caesar-dom.js',
                           'ui/vigenere-dom.js',
-                          'ui/rsa-dom.js'];
+                          'ui/rsa-dom.js',
+                          'ui/dh-dom.js'];
 
 var javascriptsNode = ['module.js'];
 
