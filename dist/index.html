@@ -75,7 +75,7 @@
                 <p>Message: <br>
                     <textarea id="caesar-input"></textarea>
                 </p>
-                <p>Key: <input id="caesar-key" type="number" value="3"></p>
+                <p>Key: <input id="caesar-key" type="number" value="3"> (number)</p>
                 <p>Output: </p><pre id="caesar-output">Output</pre>
                 <button id="caesar-en" type="button">Encrypt</button>
                 <button id="caesar-de" type="button">Decrypt</button>
@@ -87,7 +87,7 @@
                 <p>Message: <br>
                     <textarea id="vigenere-input"></textarea>
                 </p>
-                <p>Key: <input id="vigenere-key"></p>
+                <p>Key: <input id="vigenere-key"> (letters)</p>
                 <p>Output: </p><pre id="vigenere-output">Output</pre>
                 <button id="vigenere-en" type="button">Encrypt</button>
                 <button id="vigenere-de" type="button">Decrypt</button>
@@ -96,9 +96,9 @@
             <div id="modern-rsa">
                 <h1>RSA</h1>
                 <p>RSA was invented by Ron Rivest, Adi Shamir and Leonard Adleman. It is the most commonly used public-key cryptosystem as of this writing.</p>
-                <h3><a id="rsa-key-gen-button" href="#modern-rsa">Key generation (import/export)</a></h3>
+                <h3><a id="rsa-key-gen-button" href="#modern-rsa">Key generation</a></h3>
                 <div id="rsa-key-gen">
-                    <p>Starting at <input id="rsa-initbase" type="number" value="2"> to the power of <input id="rsa-initpow" type="number" value="512"> get the next prime. Based off that, get another prime starting at the product of the prime and <input id="rsa-seconddiff" type="number" value="1234"></p>
+                    <p>Starting at <input id="rsa-initbase" type="number" value="2"> to the power of <input id="rsa-initpow" type="number" value="256"> get the next prime. Based off that, get another prime starting at the product of the prime and <input id="rsa-seconddiff" type="number" value="3"></p>
                     <button id="rsa-gen-keypair" type="button">Generate keys!</button>
                     <p>Public key (share!): <br><code id="rsa-key-gen-pub"></code></p>
                     <p>Private key (keep secret!)<br>
@@ -157,7 +157,7 @@
             </div>
             
             <div id="cracker-caesar">
-                <p>This is a basic Caesar cipher cracker that shows all possible results from a given ciphertext.</p>
+                <p>This is a basic Caesar cipher cracker that shows all possible results from a given ciphertext. Fill in the textbox with the ciphertext, and press the crack button to see all possible plaintext messages.</p>
                 <textarea id="ccracker-input"></textarea><br>
                 <button id="ccracker-go" type="button">Crack</button>
                 <pre id="ccracker-output">Output</pre>
