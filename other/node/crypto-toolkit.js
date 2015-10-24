@@ -287,6 +287,18 @@ modern.dhGenSharedSec = function(public, response, priv) {
     return r.modPow(private, p);
 };
 
+// caesar-cracker.js
+
+cracker.caesar = function(message) {
+    var possibleResults = [];
+    
+    for (var i = 1; i < data.alphabet.length; i++) {
+        possibleResults.push(cipher.caesar(false, message, i));
+    }
+
+    return possibleResults;
+};
+
 // module.js
 // make nodejs see the objects so that you can require this toolkit
 module.exports = {
@@ -294,5 +306,6 @@ module.exports = {
     data: data,
     internal: internal,
     cipher: cipher,
-    modern: modern
+    modern: modern,
+    cracker: cracker
 };
