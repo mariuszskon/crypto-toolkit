@@ -1,6 +1,6 @@
 // vigenere.js
 
-cipher.vigenereGetKeyLetterAlphabetPosition = function(number, key) { // take number as the position of the input letter, so that we can match it with a key letter
+internal.vigenereGetKeyLetterAlphabetPosition = function(number, key) { // take number as the position of the input letter, so that we can match it with a key letter
     var keyLetterPosition = number % key.length; // % uses modular arithmetic to "loop around", matching a number to the key letter position
     
     var keyLetterAtPosition = key.charAt(keyLetterPosition);
@@ -27,11 +27,11 @@ cipher.vigenere = function(mode, input, key) {
         
         if (mode === true) { // encryption mode
             
-            finalLetterPosition = (inputLetterPosition + cipher.vigenereGetKeyLetterAlphabetPosition(i, key)) % data.alphabet.length; // add the position of the original letter with the alphabet position of the corresponding key letter, and wrap around the alphabet length
+            finalLetterPosition = (inputLetterPosition + internal.vigenereGetKeyLetterAlphabetPosition(i, key)) % data.alphabet.length; // add the position of the original letter with the alphabet position of the corresponding key letter, and wrap around the alphabet length
             
         } else if (mode === false) { // decryption mode
             
-            var possibleLetterPosition = (inputLetterPosition - cipher.vigenereGetKeyLetterAlphabetPosition(i, key));
+            var possibleLetterPosition = (inputLetterPosition - internal.vigenereGetKeyLetterAlphabetPosition(i, key));
             
             if (possibleLetterPosition < 0) {
                 finalLetterPosition = possibleLetterPosition + data.alphabet.length; // if the number is negative, "loop around" by adding the length of the alphabet to it
