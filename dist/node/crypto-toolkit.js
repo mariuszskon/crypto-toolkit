@@ -47,10 +47,11 @@ data.alphanumeric = data.lowandup.concat(["0", "1", "2", "3", "4", "5", "6", "7"
 // caesar.js
 
 cipher.caesar = function(mode, input, key) {
+    // function assumes that data.alphabet.length == data.upperbet.length
     
     var outputtext = "";
     
-    var cinput = input.replace(/\s/g, ""); // strip out all spaces
+    var cinput = input.replace(/\s/g, "").toLowerCase(); // strip out all spaces and change case to lowercase
     
     if (key < 1 || key > (data.alphabet.length - 1)) {
         return null; // end the function
@@ -58,16 +59,21 @@ cipher.caesar = function(mode, input, key) {
     
     for (var i = 0; i < cinput.length; i++) { // loop through all of the input text
         
-        var position = data.alphabet.indexOf(cinput.charAt(i));
+        var position;
         var l;
         
         if (mode === true) { // encryption mode
+            position = data.alphabet.indexOf(cinput.charAt(i));
+            
             l = position + key;
             
             l = l % data.alphabet.length;
-        }
-        
-        if (mode === false) { // decryption mode
+            
+            outputtext += data.upperbet[l]; // put the outputtext letter in the ciphertext (UPPERCASE)
+            
+        } else if (mode === false) { // decryption mode
+            position = data.alphabet.indexOf(cinput.charAt(i));
+            
             l = position - key;
             
             if (l < 0) {
@@ -75,9 +81,11 @@ cipher.caesar = function(mode, input, key) {
                 l = l + data.alphabet.length;
                 
             }
+            
+            outputtext += data.alphabet[l]; // put the outputtext letter in the ciphertext (lowercase)
+            
         }
         
-        outputtext += data.alphabet[l]; // put the outputtext letter in the ciphertext
         
     }
     
@@ -87,10 +95,10 @@ cipher.caesar = function(mode, input, key) {
 
 // vigenere.js
 
-cipher.vigenereGetKeyLetterAlphabetPosition = function(number, key) { // take number as the position of the input letter, so that we can match it with a key letter
+internal.vigenereGetKeyLetterAlphabetPosition = function(number, key) { // take number as the position of the input letter, so that we can match it with a key letter
     var keyLetterPosition = number % key.length; // % uses modular arithmetic to "loop around", matching a number to the key letter position
     
-    var keyLetterAtPosition = key.charAt(keyLetterPosition);
+    var keyLetterAtPosition = key.charAt(keyLetterPosition).toLowerCase();
     
     return data.alphabet.indexOf(keyLetterAtPosition);
 };
@@ -98,7 +106,7 @@ cipher.vigenereGetKeyLetterAlphabetPosition = function(number, key) { // take nu
 cipher.vigenere = function(mode, input, key) {
     var finaloutput = "";
     
-    var cinput = input.replace(/\s/g, "");
+    var cinput = input.replace(/\s/g, "").toLowerCase();
     
     for (var i = 0; i < cinput.length; i++) {
         
@@ -114,21 +122,24 @@ cipher.vigenere = function(mode, input, key) {
         
         if (mode === true) { // encryption mode
             
-            finalLetterPosition = (inputLetterPosition + cipher.vigenereGetKeyLetterAlphabetPosition(i, key)) % data.alphabet.length; // add the position of the original letter with the alphabet position of the corresponding key letter, and wrap around the alphabet length
+            finalLetterPosition = (inputLetterPosition + internal.vigenereGetKeyLetterAlphabetPosition(i, key)) % data.alphabet.length; // add the position of the original letter with the alphabet position of the corresponding key letter, and wrap around the alphabet length
+            
+            finaloutput += data.upperbet[finalLetterPosition]; // get the actual letter and add it to the finaloutput (UPPERCASE)
             
         } else if (mode === false) { // decryption mode
             
-            var possibleLetterPosition = (inputLetterPosition - cipher.vigenereGetKeyLetterAlphabetPosition(i, key));
+            var possibleLetterPosition = (inputLetterPosition - internal.vigenereGetKeyLetterAlphabetPosition(i, key));
             
             if (possibleLetterPosition < 0) {
                 finalLetterPosition = possibleLetterPosition + data.alphabet.length; // if the number is negative, "loop around" by adding the length of the alphabet to it
             } else {
                 finalLetterPosition = possibleLetterPosition;
             }
+
+            finaloutput += data.alphabet[finalLetterPosition]; // get the actual letter and add it to the finaloutput (lowercase)
             
         }
         
-        finaloutput += data.alphabet[finalLetterPosition]; // get the actual letter and add it to the finaloutput
         
     }
     
