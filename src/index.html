@@ -30,7 +30,7 @@
                 <li><a href="#modern-dh">Diffie-Hellman</a></li>
             </ul>
             <ul id="crackers-menu">
-                <li><a href="#">Caesar cracker</a></li>
+                <li><a href="#cracker-caesar">Caesar cracker</a></li>
             </ul>
         </nav>
         
@@ -154,6 +154,13 @@
                 <pre id="dh-final-key"></pre>
                 <p>This key can now be used for symmetric key algorithms.</p>
                 
+            </div>
+            
+            <div id="cracker-caesar">
+                <p>This is a basic Caesar cipher cracker that shows all possible results from a given ciphertext.</p>
+                <textarea id="ccracker-input"></textarea><br>
+                <button id="ccracker-go" type="button">Crack</button>
+                <pre id="ccracker-output">Output</pre>
             </div>
             
         </div>

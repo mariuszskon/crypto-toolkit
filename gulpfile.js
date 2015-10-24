@@ -22,7 +22,8 @@ var javascriptsBrowser = ['browser.js',
                           'ui/caesar-dom.js',
                           'ui/vigenere-dom.js',
                           'ui/rsa-dom.js',
-                          'ui/dh-dom.js'];
+                          'ui/dh-dom.js',
+                          'ui/caesar-cracker-dom.js'];
 
 var javascriptsNode = ['module.js'];
 
