@@ -1,6 +1,7 @@
 // caesar.js
 
 cipher.caesar = function(mode, input, key) {
+    // function assumes that data.alphabet.length == data.upperbet.length
     
     var outputtext = "";
     
@@ -12,16 +13,21 @@ cipher.caesar = function(mode, input, key) {
     
     for (var i = 0; i < cinput.length; i++) { // loop through all of the input text
         
-        var position = data.alphabet.indexOf(cinput.charAt(i));
+        var position;
         var l;
         
         if (mode === true) { // encryption mode
+            position = data.alphabet.indexOf(cinput.charAt(i).toLowerCase()); // normalize input
+            
             l = position + key;
             
             l = l % data.alphabet.length;
-        }
-        
-        if (mode === false) { // decryption mode
+            
+            outputtext += data.upperbet[l]; // put the outputtext letter in the ciphertext (UPPERCASE)
+            
+        } else if (mode === false) { // decryption mode
+            position = data.alphabet.indexOf(cinput.charAt(i).toLowerCase()); // normalize input
+            
             l = position - key;
             
             if (l < 0) {
@@ -29,9 +35,11 @@ cipher.caesar = function(mode, input, key) {
                 l = l + data.alphabet.length;
                 
             }
+            
+            outputtext += data.alphabet[l]; // put the outputtext letter in the ciphertext (lowercase)
+            
         }
         
-        outputtext += data.alphabet[l]; // put the outputtext letter in the ciphertext
         
     }
     
