@@ -3,7 +3,7 @@
 internal.vigenereGetKeyLetterAlphabetPosition = function(number, key) { // take number as the position of the input letter, so that we can match it with a key letter
     var keyLetterPosition = number % key.length; // % uses modular arithmetic to "loop around", matching a number to the key letter position
     
-    var keyLetterAtPosition = key.charAt(keyLetterPosition);
+    var keyLetterAtPosition = key.charAt(keyLetterPosition).toLowerCase();
     
     return data.alphabet.indexOf(keyLetterAtPosition);
 };
@@ -11,7 +11,7 @@ internal.vigenereGetKeyLetterAlphabetPosition = function(number, key) { // take 
 cipher.vigenere = function(mode, input, key) {
     var finaloutput = "";
     
-    var cinput = input.replace(/\s/g, "");
+    var cinput = input.replace(/\s/g, "").toLowerCase();
     
     for (var i = 0; i < cinput.length; i++) {
         
@@ -29,6 +29,8 @@ cipher.vigenere = function(mode, input, key) {
             
             finalLetterPosition = (inputLetterPosition + internal.vigenereGetKeyLetterAlphabetPosition(i, key)) % data.alphabet.length; // add the position of the original letter with the alphabet position of the corresponding key letter, and wrap around the alphabet length
             
+            finaloutput += data.upperbet[finalLetterPosition]; // get the actual letter and add it to the finaloutput (UPPERCASE)
+            
         } else if (mode === false) { // decryption mode
             
             var possibleLetterPosition = (inputLetterPosition - internal.vigenereGetKeyLetterAlphabetPosition(i, key));
@@ -38,10 +40,11 @@ cipher.vigenere = function(mode, input, key) {
             } else {
                 finalLetterPosition = possibleLetterPosition;
             }
+
+            finaloutput += data.alphabet[finalLetterPosition]; // get the actual letter and add it to the finaloutput (lowercase)
             
         }
         
-        finaloutput += data.alphabet[finalLetterPosition]; // get the actual letter and add it to the finaloutput
         
     }
     
