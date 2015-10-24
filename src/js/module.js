@@ -5,5 +5,6 @@ module.exports = {
     data: data,
     internal: internal,
     cipher: cipher,
-    modern: modern
+    modern: modern,
+    cracker: cracker
 };

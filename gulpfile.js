@@ -12,7 +12,8 @@ var javascriptsAll = ['header.js',
                       'ciphers/vigenere.js',
                       'bigint/BigInteger.min.js',
                       'modern/rsa.js',
-                      'modern/dh.js'];
+                      'modern/dh.js',
+                      'cracker/caesar-cracker.js'];
 
 var javascriptsBrowser = ['browser.js',
                           'ui/toolbar.js',
