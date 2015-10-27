@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Crypto-toolkit</title>
+        <link rel="stylesheet" href="css/main.min.css">
+    </head>
+    <body>
+        <nav id="main-nav">
+            <ul id="main-ul">
+                <li><a id="home-button" href="#">Home</a></li>
+                <li><a id="ciphers-button" href="#">Simple Ciphers</a></li>
+                <li><a id="modern-button" href="#">Modern crypto</a></li>
+                <li><a id="crackers-button" href="#">Crackers</a></li>
+            </ul>
+        </nav>
+        
+        <nav id="sub-nav">
+            <ul id="home-menu">
+                <li><a href="#home-welcome">Welcome</a></li>
+                <li><a href="#home-license">License</a></li>
+            </ul>
+            <ul id="ciphers-menu">
+                <li><a href="#cipher-caesar">Caesar</a></li>
+                <li><a href="#cipher-vigenere">Vigenere</a></li>
+            </ul>
+            <ul id="modern-menu">
+                <li><a href="#modern-rsa">RSA</a></li>
+                <li><a href="#modern-dh">Diffie-Hellman</a></li>
+            </ul>
+            <ul id="crackers-menu">
+                <li><a href="#cracker-caesar">Caesar cracker</a></li>
+            </ul>
+        </nav>
+        
+        <div id="main">
+            
+            <div id="home-welcome">
+                <h1>Welcome</h1>
+                <p>Welcome to crypto-toolkit!</p>
+                <p><strong>Warning!</strong> This toolkit is to be used as a demonstration, NOT as a tool for actual encryption!</p>
+            </div>
+            
+            <div id="home-license">
+                <h1>License</h1>
+                <p>
+                    The MIT License (MIT)<br>
+                    
+                    Copyright (c) 2015 Mariusz Skoneczko<br>
+                    
+                    Permission is hereby granted, free of charge, to any person obtaining a copy<br>
+                    of this software and associated documentation files (the "Software"), to deal<br>
+                    in the Software without restriction, including without limitation the rights<br>
+                    to use, copy, modify, merge, publish, distribute, sublicense, and/or sell<br>
+                    copies of the Software, and to permit persons to whom the Software is<br>
+                    furnished to do so, subject to the following conditions:<br>
+                    <br>
+                    The above copyright notice and this permission notice shall be included in all<br>
+                    copies or substantial portions of the Software.<br>
+                    <br>
+                    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR<br>
+                    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,<br>
+                    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE<br>
+                    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER<br>
+                    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,<br>
+                    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE<br>
+                    SOFTWARE.
+                </p>
+            </div>
+            
+            <div id="cipher-caesar">
+                <h1>Caesar cipher</h1>
+                <p>The Caesar cipher is a simple substitution cipher which, as the name suggests, was used by Julius Caesar.</p>
+                <p>Message: <br>
+                    <textarea id="caesar-input"></textarea>
+                </p>
+                <p>Key: <input id="caesar-key" type="number" value="3"> (number)</p>
+                <p>Output: </p><pre id="caesar-output">Output</pre>
+                <button id="caesar-en" type="button">Encrypt</button>
+                <button id="caesar-de" type="button">Decrypt</button>
+            </div>
+            
+            <div id="cipher-vigenere">
+                <h1>Vigenere cipher</h1>
+                <p>If the Caesar cipher was considered one-dimensional, the Vigenere cipher is two-dimensional. It was put into practice by Blaise de Vigenere.</p>
+                <p>Message: <br>
+                    <textarea id="vigenere-input"></textarea>
+                </p>
+                <p>Key: <input id="vigenere-key"> (letters)</p>
+                <p>Output: </p><pre id="vigenere-output">Output</pre>
+                <button id="vigenere-en" type="button">Encrypt</button>
+                <button id="vigenere-de" type="button">Decrypt</button>
+            </div>
+            
+            <div id="modern-rsa">
+                <h1>RSA</h1>
+                <p>RSA was invented by Ron Rivest, Adi Shamir and Leonard Adleman. It is the most commonly used public-key cryptosystem as of this writing.</p>
+                <h3><a id="rsa-key-gen-button" href="#modern-rsa">Key generation</a></h3>
+                <div id="rsa-key-gen">
+                    <p>Starting at <input id="rsa-initbase" type="number" value="2"> to the power of <input id="rsa-initpow" type="number" value="256"> get the next prime. Based off that, get another prime starting at the product of the prime and <input id="rsa-seconddiff" type="number" value="3"></p>
+                    <button id="rsa-gen-keypair" type="button">Generate keys!</button>
+                    <p>Public key (share!): <br><code id="rsa-key-gen-pub"></code></p>
+                    <p>Private key (keep secret!)<br>
+                        <code id="rsa-key-gen-priv"></code>
+                    </p>
+                </div>
+                
+                <h3><a id="rsa-crypt-button" href="#modern-rsa">Encryption/Decryption</a></h3>
+                <div id="rsa-crypt">
+                    <p>Message: <br>
+                        <textarea id="rsa-crypt-message"></textarea><br>
+                        <label><input id="rsa-msg-num" type="checkbox">Message is only a number</label>
+                    </p>
+                    <hr>
+                    <p>Public key: <input id="rsa-crypt-pub" type="text"></p>
+                    <button id="rsa-encrypt" type="button">Encrypt</button>
+                    <hr>
+                    <p>Private key: <input id="rsa-crypt-priv" type="text"></p>
+                    <button id="rsa-decrypt" type="button">Decrypt</button>
+                    <hr>
+                    <p>Result</p>
+                    <pre id="rsa-crypt-result"></pre>
+                </div>
+                
+            </div>
+            
+            <div id="modern-dh">
+                <h1>Diffie-Hellman key exchange</h1>
+                <p>The Diffie-Hellman was one of the first solutions to the problem of key exchange. It allows two parties to agree on a key over an insecure channel.</p>
+                
+                <h3>Public prime and base</h3>
+                <p>Use RFC3526 standard:</p>
+                <form id="dh-public-size">
+                    <label><input type="radio" name="dh-size" value="2048" checked>2048 bit</label>
+                    <label><input type="radio" name="dh-size" value="3072">3072 bit</label>
+                    <label><input type="radio" name="dh-size" value="4096">4096 bit</label>
+                </form>
+                
+                <h3>Private key</h3>
+                <p>Your private key must be a number between 1 and 2<sup>(bits - 1)</sup></p>
+                <input id="dh-priv" type="text">
+                
+                <h3>Generate public key</h3>
+                <p>Make sure that the steps above are complete, and then press the button below.</p>
+                <button id="dh-gen-pub" type="button">Generate public key</button>
+                <pre id="dh-pub-key"></pre>
+                
+                <h3>Agree on final key</h3>
+                <p>Send the public key to the other person. Get them to give you their public key.</p>
+                <input id="dh-their-pub" type="text" placeholder="Their public key">
+                <p>Now you can arrive at the same key!</p>
+                <button id="dh-final" type="button">Compute final shared key</button>
+                <pre id="dh-final-key"></pre>
+                <p>This key can now be used for symmetric key algorithms.</p>
+                
+            </div>
+            
+            <div id="cracker-caesar">
+                <p>This is a basic Caesar cipher cracker that shows all possible results from a given ciphertext. Fill in the textbox with the ciphertext, and press the crack button to see all possible plaintext messages.</p>
+                <textarea id="ccracker-input"></textarea><br>
+                <button id="ccracker-go" type="button">Crack</button>
+                <pre id="ccracker-output">Output</pre>
+            </div>
+            
+        </div>
+        
+        <script src="js/crypto-toolkit.js"></script>
+    </body>
+</html>
